@@ -1,3 +1,5 @@
+''' *********** TEST CODE YOU CAN IGNORE THIS ********* '''
+
 import re
 
 def analyze( expr ):
