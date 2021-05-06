@@ -1,0 +1,56 @@
+{% extends "theme.html" %}
+
+<head>
+
+	{% block title %}
+		Cool Math
+	{% endblock title %}
+	
+	{% block style %}
+		
+		a {
+			text-decoration: none;
+		}
+		
+		#content-title {
+			color: orange;
+		}
+		
+		.content-card {
+			border: 1px dotted black;
+			padding: 1opx;
+			display : inline-block;
+		}
+	{% endblock style %}
+
+</head>
+
+{% block header %}
+	<h1>
+		Cool Maths
+	</h1>
+{% endblock header %}
+
+{% block content %}
+
+	<div class="content-wrapper">
+	
+	{% for content in contents %}
+		<div class="content-card">
+			<div id="content-title" style="color: orange;">
+				<b>{{content.title}}</b>
+			</div>
+			
+			<div id="content-desc">
+				{{content.desc}}
+			</div>
+			
+			<div id="content-explore">
+				<button><a href="{{content.link}}">Explore</a></button>
+			</div>
+		</div>
+	{% endfor %}
+		
+	</div>
+	
+{% endblock content %}

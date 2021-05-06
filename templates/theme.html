@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<title>
+		{% block title %}
+		{% endblock title %}
+		</title>
+		
+		<style>
+		{% block style %}
+		{% endblock style %}
+		</style>
+		
+		<header>
+		{% block header %}
+		{% endblock header %}
+		</header>
+		
+		{% block extrascripts %}
+		{% endblock extrascripts %}
+	</head>
+	
+	<body bgcolor="#f2eee4">
+	{% block content %}
+	
+	{% endblock content %}
+	</body>
+</html>

@@ -1,0 +1,23 @@
+{% extends "theme.html" %}
+
+<head>
+	{% block title %}
+	Prime at position {{pos}}
+	{% endblock title %}
+</head>
+
+{% block content %}
+	<div class="content-wrapper">
+		<h1>Prime Calculator</h1>
+		
+		<form action="">
+			<input type="number" placeholder="Enter position..." name="primepos" value="0">
+			<input type="submit" value="Calculate">
+		</form>
+		
+		<div>
+			<h2>Prime at position {{pos}}:</h2>
+			<p>{{val}}</p>
+		</div>
+	</div>
+{% endblock content %}

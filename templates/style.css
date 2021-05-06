@@ -1,0 +1,24 @@
+.content-wrapper {
+	display: flex;
+	width: 100vw;
+	height: 100vh;
+	justify-content: center;
+}
+		
+.content-card {
+	width: 200px;
+	height: 150px;
+	border: 1px black;
+	padding: 10px;
+	margin: 5px;
+}
+
+button {
+	width: 100px;
+	height: 30px;
+}
+
+a {
+	text-decoration: none;
+	color: rgb(245, 161, 66);
+}

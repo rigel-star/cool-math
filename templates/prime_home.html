@@ -1,0 +1,91 @@
+{% extends "theme.html" %}
+
+<head>
+	{% block title %}
+		World of prime numbers!
+	{% endblock title %}
+	
+	{% block style %}
+		.content-wrapper {
+			display: flex;
+			width: 100vw;
+			height: 100vh;
+			justify-content: center;
+		}
+				
+		.content-card {
+			width: 200px;
+			height: 150px;
+			border: 1px black;
+			padding: 10px;
+			margin: 5px;
+		}
+		
+		#header-content ul {
+			list-style: none;
+		}
+		
+		#header-content li {
+			display: inline;
+		}
+		
+		#menu-go-home {
+			font-size: 28px;
+			font-family: monospace;
+			font-style: bold;
+		}
+		
+		#menu-name {
+			font-size: 24px;
+			font-family: monospace;
+		}
+
+		button {
+			width: 100px;
+			height: 30px;
+		}
+
+		a {
+			text-decoration: none;
+			color: rgb(245, 161, 66);
+		}
+	{% endblock style %}
+	
+	{% block header %}
+	<div id="header-content">
+		<ul>
+			<li id="menu-go-home">
+				<a href="127.0.0.1:8000">
+				{% load static %}
+				<img width="40px" height="40px" src="{% static 'math.png' %}" alt="Cool Maths">
+				</a>
+			</li>
+			
+			<li id="menu-name">
+				Prime Numbers
+			</li>
+		</ul>
+	</div>
+	{% endblock header %}
+</head>
+
+{% block content %}
+	<div class="content-wrapper">
+		{% for hyper in contents %}
+		<div class="content-card">
+			<div id="content-title">
+				<b>{{hyper.title}}</b>
+			</div>
+			<div id="content-desc">
+				{{hyper.desc}}
+			</div>
+			<div id="content-explore">
+				<button><a href="{{hyper.link}}">Play</a></button>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+
+{% endblock content %}
+
+

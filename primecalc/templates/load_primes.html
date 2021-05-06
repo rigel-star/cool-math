@@ -1,0 +1,51 @@
+{% extends "theme.html" %}
+
+<head>
+
+	{% block title %}
+		Load Primes
+	{% endblock title %}
+	
+	{% block style %}
+		
+	{% endblock style %}
+	
+	{% block extrascripts %}
+	
+	<script type="text/javascript">
+		window.onload = function() {
+			console.log( "{{loadedAll}}" );
+			console.log( "{{left}}" );
+			if ( "{{loadedAll}}" == "False" ) {
+				var anchor = document.createElement( "a" );
+				var link = document.createTextNode( "Load more..." );
+				anchor.appendChild( link );
+				anchor.title = "Load more...";
+				anchor.href = "#";
+				document.body.appendChild( anchor );
+			}
+		}
+	</script>
+	
+	{% endblock extrascripts %}
+</head>
+
+{% block content %}
+	<div class="content-wrapper">
+	  <form action="">
+	    <input type="number" placeholder="Enter number..." name="count">
+	    <input type="hidden" name="left_req" value="{{left}}">
+	    <input type="submit" value="Compute">
+	  </form>
+	
+	<div id="content-primes">
+	  <ul>
+	    {% for prime in primes %}
+	      <li>
+		{{prime}}
+	      </li>
+	    {% endfor %}
+	   </ul>
+	</div>
+	</div>
+{% endblock content %}

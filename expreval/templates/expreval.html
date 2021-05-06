@@ -1,0 +1,43 @@
+{% extends "index.html" %}
+
+<head>
+
+  {% block extrascripts %}
+
+	<script>
+
+    function checkExpr() {
+
+      //var expr = document.forms["expressionForm"]["expression"].value;
+      var expr = document.getElementById( 'expression' ).innerHTML;
+
+      if ( "{{expr}}" == null || "{{expr}}" == "None" ) {
+        expr.innerHTML = "2^2";
+      }
+    }
+
+    window.onload = checkExpr()
+
+	</script>
+
+	{% endblock extrascripts %}
+
+</head>
+
+{% block content %}
+
+  <div class="form">
+
+      <form name="expressionForm" class="expressionForm" action="?" method="POST">
+        {% csrf_token %}
+        <input type="text" name="expression" id="expression" value="{{expr}}">
+        <input type="submit" name="submitBttn" value="Evaluate" onclick="checkExpr()">
+      </form>
+
+  </div>
+
+  <div class="result">
+    <h2>Result::  {{ans}}</h2>
+  </div>
+
+{% endblock content %}

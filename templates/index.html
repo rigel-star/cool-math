@@ -1,0 +1,80 @@
+{% extends "theme.html" %}
+
+<head>
+
+	{% block title %}
+		Cool Math
+	{% endblock title %}
+	
+	{% block style %}
+		
+		a {
+			text-decoration: none;
+		}
+		
+		#content-title {
+			color: orange;
+		}
+		
+		.content-card {
+			border: 1px solid black;
+			padding: 10px;
+	                display : inline-block;
+		}
+
+		#content-fact {
+			border: 1px solid black;
+			padding: 10px;
+			margin-top: 10px;
+		}
+		
+		#content-fact-title {
+			font-size: 20px;
+			color: orange;
+		}
+
+	
+	{% endblock style %}
+
+</head>
+
+{% block header %}
+	<h1>
+		Cool Maths
+	</h1>
+{% endblock header %}
+
+{% block content %}
+
+	<div class="content-wrapper">
+	
+	{% for content in contents %}
+		<div class="content-card">
+			<div id="content-title" style="color: orange;">
+				<b>{{content.title}}</b>
+			</div>
+			
+			<div id="content-desc">
+				{{content.desc}}
+			</div>
+			
+			<div id="content-explore">
+				<button><a href="{{content.link}}">Explore</a></button>
+			</div>
+		</div>
+	{% endfor %}
+		
+		<br>
+		<h2>Math Fact</h2>
+		<div id="content-fact">
+		  <div id="content-fact-title">
+		    {{fact.title}}
+		  </div>
+		  <div id="content-fact-desc">
+		    {{fact.desc}}
+		  </div>
+		</div>
+		
+	</div>
+	
+{% endblock content %}

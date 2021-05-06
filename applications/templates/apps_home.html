@@ -1,0 +1,65 @@
+{% extends "index.html" %}
+
+<head>
+	
+	{% block style %}
+	
+	.grid-wrapper {
+		margin: 20px;
+		padding: 10px;
+		display: grid;
+		grid-gap: 30px 30px;
+		grid-template-columns: repeat(4, 1fr);
+		grid-auto-rows: minmax(250px, 270px); /* height */
+		justify-items: center;
+	}
+	
+	.grid-wrapper > div {
+		background-color: #eee;
+	}
+	
+	.content-card {
+		padding: 5px;
+		display: grid;
+		grid-gap: 2px;
+		grid-template-rows: repeat(2, 200px 50px);
+		border: 1px solid black;
+		border-radius: 8px;
+		width: 200px;
+	}
+	
+	.card-bg-img {
+		width: 200px;
+		height: 200px;
+	}
+	
+	{% endblock style %}
+	
+	{% block extrascripts %}
+	
+	<script>
+		function fullAlert( title, desc ) {
+			window.location = "./desc/?id=" + title;
+		}
+	</script>
+	
+	{% endblock extrascripts %}
+</head>
+
+{% block content %}
+
+	<div class="grid-wrapper">
+	{% for app in apps %}
+	    <div class="content-card" onclick="fullAlert( '{{app.title}}', '{{app.desc}}' )">
+	        <div id="card-bg">
+	            {% load static %}
+		 <img class="card-bg-img" src="/static/{{app.img}}" alt="Cool Maths">
+	        </div>
+	        <div id="card-title">
+	        {{app.title}}
+	        </div>
+	    </div>
+	{% endfor %}
+	</div>
+
+{% endblock content %}

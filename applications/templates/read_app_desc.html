@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>{{app.title}}</title>
+
+		<style type="text/css">
+
+			.content-wrapper {
+				display: grid;
+				grid-gap:10px;
+				grid-template-rows: repeat(2, 200px auto);
+			}
+
+			.content-image {
+				border-radius: 8px;
+			}
+
+			.content-text {
+				display: grid;
+				grid-gap: 5px;
+				grid-template-rows: repeat(2, 100px auto);
+				background-color: #eee;
+				grid-template-rows: repeat(2, 1fr 2fr);
+			}
+
+			.title {
+				font-size: 24px;
+				font-family: monospace;
+			}
+
+			.desc {
+				font-size: 20px;
+				font-family: monospace;
+			}
+
+		</style>
+
+	</head>
+	<body>
+
+		<div class="content-wrapper">
+
+			<div class="content-img">
+				{% load static %}
+				<img width="200px" height="250px" src="{% static 'Image Compression.jpeg' %}" alt="{{app.title}}">
+			</div>
+
+			<<div class="content-text">
+				<div class="title">
+					<b>{{app.title}}</b>
+				</div>
+
+				<<div class="desc">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				</div>
+			</div>
+
+		</div>
+
+	</body>
+</html>
